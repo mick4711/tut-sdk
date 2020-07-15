@@ -1,0 +1,9 @@
+handler:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: A wondrous greeting, you're on your way to an epic journey.
+            text: A wondrous greeting, you're on your way to an epic journey.
+transitionToScene: Start

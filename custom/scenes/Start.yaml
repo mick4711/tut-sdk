@@ -1,0 +1,22 @@
+intentEvents:
+- intent: "yes"
+  transitionToScene: Fortune
+- handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: No problem, best of luck. Goodbye!
+  intent: "no"
+  transitionToScene: actions.scene.END_CONVERSATION
+onEnter:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: Would you like your fortune told?
+        suggestions:
+        - title: "Yes"
+        - title: "No"

@@ -1,0 +1,60 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL" && session.params.chosenOptions == "dragon"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: You return home from your quest without everlasting glory or
+                a dragon.
+  transitionToScene: Again
+- condition: scene.slots.status == "FINAL" && session.params.chosenOptions == "translator"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: With the help of the translator, it retires honorably to a premier
+                location in the museum.
+  transitionToScene: Again
+- condition: scene.slots.status == "FINAL" && session.params.chosenOptions == "compass"
+  handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: The compass will help you, but have limited commercial success.
+  transitionToScene: Again
+intentEvents:
+- handler:
+    staticPrompt:
+      candidates:
+      - promptResponse:
+          firstSimple:
+            variants:
+            - speech: I have seen the future and a $intent.params.chosenUnavailableOption.original
+                will not aid you on your journey.
+  intent: other_option
+slots:
+- commitBehavior:
+    writeSessionParam: chosenOptions
+  name: chosenOptions
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: What do you choose to help you on your quest, a dragon, a
+                  translator, or a compass?
+            suggestions:
+            - title: Dragon
+            - title: Translator
+            - title: Compass
+  required: true
+  type:
+    name: available_options

@@ -1,0 +1,15 @@
+synonym:
+  entities:
+    compass:
+      synonyms:
+      - compass
+      - direction
+    dragon:
+      synonyms:
+      - dragon
+      - hydra
+    translator:
+      synonyms:
+      - translator
+      - communicator
+  matchType: EXACT_MATCH
